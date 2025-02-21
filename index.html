@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Transforming Circles</title>
+    <style>
+        @keyframes spin3D {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: rotateX(180deg) rotateY(180deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        @keyframes splitCircles3D {
+            0% {
+                opacity: 1;
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            25% {
+                opacity: 1;
+                transform: rotateX(90deg) rotateY(90deg);
+            }
+            50% {
+                opacity: 1;
+                transform: rotateX(180deg) rotateY(180deg);
+            }
+            75% {
+                opacity: 1;
+                transform: rotateX(270deg) rotateY(270deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .circle-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .extra-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid rgba(210, 162, 255, 0.9);
+            animation: spin3D 8s infinite linear, splitCircles3D 8s infinite linear;
+        }
+
+        .extra-circle.one {
+            animation-delay: 0s;
+        }
+        .extra-circle.two {
+            animation-delay: 0.2s;
+        }
+        .extra-circle.three {
+            animation-delay: 0.4s;
+        }
+        .extra-circle.four {
+            animation-delay: 0.6s;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="extra-circle one"></div>
+        <div class="extra-circle two"></div>
+        <div class="extra-circle three"></div>
+        <div class="extra-circle four"></div>
+    </div>
+</body>
+</html>
